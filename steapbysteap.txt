@@ -1,0 +1,39 @@
+Step by step
+---------------------------------------
+
+1.- Create directory APIMEAN
+2.- Go in and in prompt use npm init.
+	Name: apimean
+	version: press enter
+	description: Create Api RESTful with nodeJS, Mongo and Express
+	entry point: index.js
+	test command: press enter
+	keywords: press enter
+	author: JoseRCayetano
+	License: MIT
+3.- Install Express --> npm install express --save   (use save to write dependency in package.json)
+4.- Execute node index.js with this code:
+
+				'use strict'
+
+				const express = require('express');
+				const app = express();
+
+				app.listen(3000, () => {
+					console.log('API REST corriendo en http://localhost:3000');
+				});
+
+5.- Install body-parser ( npm i -S body-parser).
+	When we do http petition of type REST, parse the body  of the pettition and get it in node  to save in a DB.
+6- Add to index.js
+
+		app.use(bodyParser.urlencoded({ extended: false}));
+		app.use(bodyParser.json()); //Para admitir peticiones con el cuerpo del mensaje en formato JSON
+
+7.- Install nodemon como dependencia del desarrollo para cuando se haga un cambio el servidor se reinicie. npm i -D nodemon
+
+8- Añadir al archivo package dentro de script la linea :
+
+	"start": "nodemon index.js",
+
+9- Ejecutar npm start
